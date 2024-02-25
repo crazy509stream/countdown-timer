@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>countdown timer</title>
+    <link rel="stylesheet" href="timer.css">
+
+</head>
+<body>
+    <div class="wrapper">
+        <h1 class="heading">EZENNAYA'S IPHONE GIVEAWAY</h1>
+        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia esse excepturi exercitationem sequi minus nostrum fugiat doloribus accusamus quod facere saepe assumenda quisquam alias quis, consectetur ab accusantium? Commodi, voluptatem!</p>
+        <p class="description2">giveaway ends on the 31st of march midnight</p>
+
+        <div class="timer">
+            <div class="sub_timer">
+                <h1 id="day" class="digit">00</h1>
+                <p class="digit_name">days</p>
+            </div>
+            <div class="sub_timer">
+                <h1 id="hour" class="digit">00</h1>
+                <p class="digit_name">hours</p>
+            </div>
+            <div class="sub_timer">
+                <h1 id="min" class="digit">00</h1>
+                <p class="digit_name">minutes</p>
+            </div>
+            <div class="sub_timer">
+                <h1 id="sec" class="digit">00</h1>
+                <p class="digit_name">seconds</p>
+            </div>
+        </div>
+    </div>
+
+
+<!--javascript-->
+<script>    
+var target_mili_sec = new Date("Mar 31, 2024 23:59:0").getTime();
+function timer(){
+    var now_mili_sec = new Date().getTime();
+    var remaining_sec = Math.floor((target_mili_sec - now_mili_sec) / 1000);
+
+    var day = Math.floor(remaining_sec / (3600 * 24));
+    var hour = Math.floor((remaining_sec % (3600 * 24)) / 3600);
+    var min = Math.floor((remaining_sec % 3600) / 60);
+    var sec = Math.floor(remaining_sec % 60 );
+
+    document.querySelector("#day").innerHTML = day;
+    document.querySelector("#hour").innerHTML = hour;
+    document.querySelector("#min").innerHTML = min;
+    document.querySelector("#sec").innerHTML = sec;
+}
+setInterval(timer, 1000); //1000 it means 1 sec
+</script>
+
+</body>
+</html>
